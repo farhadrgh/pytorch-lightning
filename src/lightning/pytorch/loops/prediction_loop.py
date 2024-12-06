@@ -269,7 +269,7 @@ class _PredictionLoop(_Loop):
 
         self.batch_progress.increment_completed()
 
-        if self._return_predictions or any_on_epoch:
+        if self._return_predictions:
             self._predictions[dataloader_idx].append(move_data_to_device(predictions, torch.device("cpu")))
 
     def _build_kwargs(self, batch: Any, batch_idx: int, dataloader_idx: Optional[int]) -> OrderedDict:
